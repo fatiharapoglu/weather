@@ -1,7 +1,7 @@
 :root {
-  --text: white;
-  --background-primary: black;
-  --border: 1px solid rgb(255, 255, 255);
+  --text: black;
+  --background-primary: inherit;
+  --border: 1px solid red;
 }
 
 * {
@@ -23,14 +23,18 @@ a {
 
 body {
   min-height: 100vh;
-  background-color: var(--background-primary);
+  background-image: url(assets/pexels-nathan-chung-1375958.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
 }
 
 .btn {
   border: var(--border);
   border-radius: 10px;
   color: var(--text);
-  background-color: inherit;
+  background-color: var(--background-primary);
   width: 100px;
   height: 25px;
   cursor: pointer;
@@ -42,6 +46,35 @@ body {
   padding: 3px 5px;
   color: var(--text);
   background-color: var(--background-primary);
+}
+
+*::placeholder {
+  background-color: var(--background-primary);
+  color: var(--text);
+}
+
+.container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60vh;
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
 }
 
 /*# sourceMappingURL=style.css.map */

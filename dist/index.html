@@ -9,11 +9,36 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    <form>
-        <input id="search-input" type="text" class="search-input" placeholder="Search area">
-        <button id="search-btn" class="btn">Search</button>
-    </form>
-    <button id="change-unit-btn" class="btn">Units to °F</button>
-    <div id="content"></div>
+    <div class="container">
+        <form autocomplete="off">
+            <input id="search-input" type="text" class="search-input" placeholder="Search area">
+            <button id="search-btn" class="btn">Search</button>
+        </form>
+        <button id="change-unit-btn" class="btn">Units to °F</button>
+    </div>
+    <div class="weather-details-center">
+        <div id="place"></div>
+    </div>
+    <div class="main">
+        <div class="weather-details-left">
+            <div id="date"></div>
+            <div id="description"></div>
+            <div id="temp"></div>
+            <div id="icon"></div>
+        </div>
+        <div class="weather-details-right">
+            <div id="feels-like"></div>
+            <div id="humidity"></div>
+            <div id="chance-of-rain"></div>
+            <div id="wind"></div>
+        </div>
+    </div>
+    <div class="forecast">
+        <div id="first-day">first</div>
+        <div id="second-day">second</div>
+        <div id="third-day">third</div>
+        <div id="fourth-day">fourth</div>
+        <div id="fifth-day">fifth</div>
+    </div>
 </body>
 </html>
