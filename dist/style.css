@@ -1,6 +1,7 @@
 :root {
   --text: white;
   --background-primary: black;
+  --border: 1px solid rgb(255, 255, 255);
 }
 
 * {
@@ -22,6 +23,24 @@ a {
 
 body {
   min-height: 100vh;
+  background-color: var(--background-primary);
+}
+
+.btn {
+  border: var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  background-color: inherit;
+  width: 100px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.search-input {
+  border: var(--border);
+  border-radius: 10px;
+  padding: 3px 5px;
+  color: var(--text);
   background-color: var(--background-primary);
 }
 
