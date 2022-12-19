@@ -10,29 +10,27 @@
     <script src="https://kit.fontawesome.com/4b1acd5b1d.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <button id="change-unit-btn" class="btn">Units to °F</button>
+    <div class="weather-details-center">
+        <div id="place"></div>
+        <div>
+            <div><img id="icon" src="#" alt="icon"></div>
+            <div id="description"></div>
+        </div>
+        <div id="temp"></div>
+    </div>
+    <div class="main">
+        <div id="date"></div>
+        <div id="feels-like"></div>
+        <div id="humidity"></div>
+        <div id="chance-of-rain"></div>
+        <div id="wind"></div>
+    </div>
     <div class="container">
         <form autocomplete="off">
             <input id="search-input" type="text" class="search-input" placeholder="Search area" autofocus>
             <button id="search-btn" class="btn"><i class="fa-solid fa-magnifying-glass-location" style="font-size: 20px;"></i></button>
         </form>
-        <button id="change-unit-btn" class="btn">Units to °F</button>
-    </div>
-    <div class="weather-details-center">
-        <div><img id="icon" src="#" alt="icon"></div>
-        <div id="place"></div>
-    </div>
-    <div class="main">
-        <div class="weather-details-left">
-            <div id="date"></div>
-            <div id="description"></div>
-            <div id="temp"></div>
-        </div>
-        <div class="weather-details-right">
-            <div id="feels-like"></div>
-            <div id="humidity"></div>
-            <div id="chance-of-rain"></div>
-            <div id="wind"></div>
-        </div>
     </div>
     <div class="forecast">
         <div><img src="#" alt="1"><span id="first-day"></span></div>
