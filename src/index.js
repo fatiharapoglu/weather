@@ -80,11 +80,11 @@ export default class DOM {
         thirdDayDOM.textContent = `Temp : ${thirdDayTemp} Feels Like: ${thirdDayFeelsLike}`;
         fourthDayDOM.textContent = `Temp : ${fourthDayTemp} Feels Like: ${fourthDayFeelsLike}`;
         fifthDayDOM.textContent = `Temp : ${fifthDayTemp} Feels Like: ${fifthDayFeelsLike}`;
-        const icon1DOM = firstDayDOM.nextSibling;
-        const icon2DOM = secondDayDOM.nextSibling;
-        const icon3DOM = thirdDayDOM.nextSibling;
-        const icon4DOM = fourthDayDOM.nextSibling;
-        const icon5DOM = fifthDayDOM.nextSibling;
+        const icon1DOM = firstDayDOM.previousSibling;
+        const icon2DOM = secondDayDOM.previousSibling;
+        const icon3DOM = thirdDayDOM.previousSibling;
+        const icon4DOM = fourthDayDOM.previousSibling;
+        const icon5DOM = fifthDayDOM.previousSibling;
         icon1DOM.src = icon1;
         icon2DOM.src = icon2;
         icon3DOM.src = icon3;

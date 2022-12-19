@@ -12,17 +12,17 @@
 <body>
     <div class="container">
         <form autocomplete="off">
-            <input id="search-input" type="text" class="search-input" placeholder="Search area">
-            <button id="search-btn" class="btn">Search</button>
+            <input id="search-input" type="text" class="search-input" placeholder="Search area" autofocus>
+            <button id="search-btn" class="btn"><i class="fa-solid fa-magnifying-glass-location" style="font-size: 20px;"></i></button>
         </form>
         <button id="change-unit-btn" class="btn">Units to °F</button>
     </div>
     <div class="weather-details-center">
+        <div><img id="icon" src="#" alt="icon"></div>
         <div id="place"></div>
     </div>
     <div class="main">
         <div class="weather-details-left">
-            <div><img id="icon" src="#" alt="icon"></div>
             <div id="date"></div>
             <div id="description"></div>
             <div id="temp"></div>
@@ -35,11 +35,11 @@
         </div>
     </div>
     <div class="forecast">
-        <div><span id="first-day"></span><img src="#" alt="1"></div>
-        <div><span id="second-day"></span><img src="#" alt="2"></div>
-        <div><span id="third-day"></span><img src="#" alt="3"></div>
-        <div><span id="fourth-day"></span><img src="#" alt="4"></div>
-        <div><span id="fifth-day"></span><img src="#" alt="5"></div>
+        <div><img src="#" alt="1"><span id="first-day"></span></div>
+        <div><img src="#" alt="2"><span id="second-day"></span></div>
+        <div><img src="#" alt="3"><span id="third-day"></span></div>
+        <div><img src="#" alt="4"><span id="fourth-day"></span></div>
+        <div><img src="#" alt="5"><span id="fifth-day"></span></div>
     </div>
     <div id="snackbar" class="snackbar"><!-- snackbar text --></div>
     <div class="loading"><i class="fa-solid fa-snowflake fa-spin" style="color: rgb(167, 167, 167); font-size: 100px;"></i></div>

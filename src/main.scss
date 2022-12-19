@@ -1,7 +1,8 @@
 :root {
-    --text: black;
+    --text: white;
     --background-primary: inherit;
-    --border: 1px solid red;
+    --border: 1px solid white;
+    --shadow: rgb(0 0 0 / 33%);
 }
 
 * {
@@ -30,6 +31,12 @@ body {
     position: relative;
 }
 
+@mixin shadow {
+    background-color: var(--shadow);
+    border-radius: 20px;
+    padding: 20px;
+}
+
 .btn {
     border: var(--border);
     border-radius: 10px;
@@ -41,16 +48,17 @@ body {
 }
 
 .search-input {
-    border: var(--border);
-    border-radius: 10px;
-    padding: 3px 5px;
+    border: none;
+    padding: 10px 20px;
     color: var(--text);
     background-color: var(--background-primary);
+    font-size: 18px;
 }
 
-*::placeholder {
-    background-color: var(--background-primary);
-    color: var(--text);
+#search-btn {
+    padding: 0 10px;
+    width: auto;
+    border: none;
 }
 
 .container {
@@ -62,32 +70,90 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    *:focus-visible {
+        outline: none;
+    }
+
+    form {
+        border: var(--border);
+        border-radius: 10px;
+    }
+
+    *::placeholder {
+        background-color: var(--background-primary);
+        color: var(--text);
+        opacity: 0.5;
+    }
 }
 
 .main {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    height: 60vh;
+    height: 70vh;
 }
 
 .forecast {
     display: flex;
-    justify-content: space-between;
-    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+    height: 25vh;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @include shadow;
+    }
 }
 
 .weather-details-center {
     position: absolute;
-    top: 35%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
+    background-color: var(--shadow);
+    border-radius: 20px;
+    padding: 20px;
+
+    div {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.weather-details-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+    gap: 10px;
+
+    div {
+        @include shadow;
+        flex: 1;
+    }
+}
+
+.weather-details-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+    gap: 10px;
+
+    div {
+        @include shadow;
+        flex: 1;
+    }
 }
 
 .loading {
     visibility: hidden;
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -97,7 +163,11 @@ body {
 }
 
 .blur {
-    filter: blur(1px);
+    filter: blur(3px);
+}
+
+#place {
+    font-size: 25px;
 }
 
 .snackbar {
