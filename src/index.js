@@ -18,7 +18,7 @@ export default class DOM {
     static getLocation = () => {
         const searchInputDOM = document.getElementById("search-input");
         const location = searchInputDOM.value;
-        if (location === "") return;
+        if (location === "") return this.snackbar("Search area can not be empty.");
         this.lastLocation = location;
         Weather.getWeatherLink(location);
     };
@@ -105,6 +105,15 @@ export default class DOM {
         const iconDOM = document.getElementById("icon");
         iconDOM.src = icon;
     };
+
+    static snackbar(text) { // snackbar alert settings
+        const snackbarDOM = document.getElementById("snackbar");
+        snackbarDOM.textContent = text;
+        snackbarDOM.classList.add("show");
+        setTimeout(() => {
+            snackbarDOM.classList.remove("show");
+        }, 3000);
+    }
 }
 
 DOM.initButtons();

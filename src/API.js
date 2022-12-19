@@ -5,20 +5,28 @@ export default class Weather {
         const API = "8b09689c50ce1e845011934fc53575bd";
         const link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API}`;
         const forecastLink = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API}`;
-        this.fetchLink(link);
-        this.fetchForecastLink(forecastLink);
+        this.fetchLink(link, location);
+        this.fetchForecastLink(forecastLink, location);
     };
 
-    static fetchLink = async (link) => {
-        const rawData = await fetch(link, { mode: "cors" });
-        const data = await rawData.json();
-        this.usableCurrentData(data);
+    static fetchLink = async (link, location) => {
+        try {
+            const rawData = await fetch(link, { mode: "cors" });
+            const data = await rawData.json();
+            this.usableCurrentData(data);
+        } catch (error) {
+            DOM.snackbar(`It seems there is no location as "${location}".`);
+        }
     };
 
-    static fetchForecastLink = async (link) => {
-        const rawData = await fetch(link, { mode: "cors" });
-        const data = await rawData.json();
-        this.usableForecastData(data);
+    static fetchForecastLink = async (link, location) => {
+        try {
+            const rawData = await fetch(link, { mode: "cors" });
+            const data = await rawData.json();
+            this.usableForecastData(data);
+        } catch (error) {
+            DOM.snackbar(`It seems there is no location as "${location}".`);
+        }
     };
 
     static usableCurrentData = (data) => {

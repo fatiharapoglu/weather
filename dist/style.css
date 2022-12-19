@@ -84,4 +84,67 @@ body {
   transform: translateX(-50%);
 }
 
+.snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: rgb(163, 44, 44);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  position: fixed;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50px;
+}
+
+.snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 50px;
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 50px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    top: 50px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    top: 50px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
