@@ -19,8 +19,7 @@ export default class DOM {
         const searchInputDOM = document.getElementById("search-input");
         const location = searchInputDOM.value;
         if (location === "") return this.snackbar("Search area can not be empty.");
-        this.lastLocation = location;
-        Weather.getWeatherLink(location);
+        return Weather.getWeatherLink(location);
     };
 
     static toggleUnits = () => {
@@ -76,19 +75,16 @@ export default class DOM {
         const thirdDayDOM = document.getElementById("third-day");
         const fourthDayDOM = document.getElementById("fourth-day");
         const fifthDayDOM = document.getElementById("fifth-day");
-
-        const icon1DOM = firstDayDOM.nextSibling;
-        const icon2DOM = secondDayDOM.nextSibling;
-        const icon3DOM = thirdDayDOM.nextSibling;
-        const icon4DOM = fourthDayDOM.nextSibling;
-        const icon5DOM = fifthDayDOM.nextSibling;
-
         firstDayDOM.textContent = `Temp : ${firstDayTemp} Feels Like: ${firstDayFeelsLike}`;
         secondDayDOM.textContent = `Temp : ${secondDayTemp} Feels Like: ${secondDayFeelsLike}`;
         thirdDayDOM.textContent = `Temp : ${thirdDayTemp} Feels Like: ${thirdDayFeelsLike}`;
         fourthDayDOM.textContent = `Temp : ${fourthDayTemp} Feels Like: ${fourthDayFeelsLike}`;
         fifthDayDOM.textContent = `Temp : ${fifthDayTemp} Feels Like: ${fifthDayFeelsLike}`;
-
+        const icon1DOM = firstDayDOM.nextSibling;
+        const icon2DOM = secondDayDOM.nextSibling;
+        const icon3DOM = thirdDayDOM.nextSibling;
+        const icon4DOM = fourthDayDOM.nextSibling;
+        const icon5DOM = fifthDayDOM.nextSibling;
         icon1DOM.src = icon1;
         icon2DOM.src = icon2;
         icon3DOM.src = icon3;

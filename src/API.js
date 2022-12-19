@@ -38,6 +38,8 @@ export default class Weather {
         const shortDesc = data.weather[0].main;
         const wind = `${this.convertSpeed(data.wind.speed).toFixed(1)} km/h`; // wind in km/h
         const iconCode = data.weather[0].icon;
+
+        DOM.lastLocation = data.name;
         DOM.renderCurrentIcon(this.generateIcon(iconCode));
         DOM.renderCurrent(temp, place, feelsLike, humidityPercent, longDesc, shortDesc, wind);
     };
@@ -48,18 +50,20 @@ export default class Weather {
 
         const firstDayTemp = this.convertKelvin(data.list[8].main.temp);
         const firstDayFeelsLike = this.convertKelvin(data.list[8].main.feels_like);
-        const icon1 = this.generateIcon(data.list[8].weather[0].icon);
         const secondDayTemp = this.convertKelvin(data.list[16].main.temp);
         const secondDayFeelsLike = this.convertKelvin(data.list[16].main.feels_like);
-        const icon2 = this.generateIcon(data.list[16].weather[0].icon);
         const thirdDayTemp = this.convertKelvin(data.list[24].main.temp);
         const thirdDayFeelsLike = this.convertKelvin(data.list[24].main.feels_like);
-        const icon3 = this.generateIcon(data.list[24].weather[0].icon);
         const fourthDayTemp = this.convertKelvin(data.list[32].main.temp);
         const fourthDayFeelsLike = this.convertKelvin(data.list[32].main.feels_like);
-        const icon4 = this.generateIcon(data.list[32].weather[0].icon);
         const fifthDayTemp = this.convertKelvin(data.list[39].main.temp);
         const fifthDayFeelsLike = this.convertKelvin(data.list[39].main.feels_like);
+
+        // five icons for five days of forecast
+        const icon1 = this.generateIcon(data.list[8].weather[0].icon);
+        const icon2 = this.generateIcon(data.list[16].weather[0].icon);
+        const icon3 = this.generateIcon(data.list[24].weather[0].icon);
+        const icon4 = this.generateIcon(data.list[32].weather[0].icon);
         const icon5 = this.generateIcon(data.list[39].weather[0].icon);
 
         DOM.renderForecast(
@@ -94,12 +98,12 @@ export default class Weather {
     };
 
     static generateIcon = (icon) => {
-        const url = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        const url = `http://openweathermap.org/img/wn/${icon}@2x.png`; // weather icons from OWM
         return url;
     };
 
-    static firstLetterUpperCase = (string) => {
+    static firstLetterUpperCase = (string) => { // API returns a string with all lowercase
         const newString = string.split(" ").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ");
-        return newString;
+        return newString; // this function is making words' first letter uppercase for display
     };
 }
