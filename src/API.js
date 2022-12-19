@@ -5,27 +5,22 @@ export default class Weather {
         const API = "8b09689c50ce1e845011934fc53575bd";
         const link = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API}`;
         const forecastLink = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${API}`;
-        this.fetchLink(link, location);
-        this.fetchForecastLink(forecastLink, location);
+        this.fetchLink(link, forecastLink, location);
     };
 
-    static fetchLink = async (link, location) => {
+    static fetchLink = async (link, forecastLink, location) => {
         try {
+            DOM.loadingShow();
             const rawData = await fetch(link, { mode: "cors" });
             const data = await rawData.json();
+            const rawForecastData = await fetch(forecastLink, { mode: "cors" });
+            const forecastData = await rawForecastData.json();
             this.usableCurrentData(data);
+            this.usableForecastData(forecastData);
+            DOM.loadingClose();
         } catch (error) {
             DOM.snackbar(`It seems there is no location as "${location}".`);
-        }
-    };
-
-    static fetchForecastLink = async (link, location) => {
-        try {
-            const rawData = await fetch(link, { mode: "cors" });
-            const data = await rawData.json();
-            this.usableForecastData(data);
-        } catch (error) {
-            DOM.snackbar(`It seems there is no location as "${location}".`);
+            DOM.loadingClose();
         }
     };
 
@@ -45,7 +40,7 @@ export default class Weather {
     };
 
     static usableForecastData = (data) => {
-        const rainPercent = `${((data.list[0].pop) * 100)} %`; // probility of rain percent (current)
+        const rainPercent = `${((data.list[0].pop) * 100).toFixed(0)} %`; // probility of rain percent (current)
         DOM.renderRainPercent(rainPercent);
 
         const firstDayTemp = this.convertKelvin(data.list[8].main.temp);

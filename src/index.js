@@ -102,14 +102,28 @@ export default class DOM {
         iconDOM.src = icon;
     };
 
-    static snackbar(text) { // snackbar alert settings
+    static snackbar = (text) => { // snackbar alert settings
         const snackbarDOM = document.getElementById("snackbar");
         snackbarDOM.textContent = text;
         snackbarDOM.classList.add("show");
         setTimeout(() => {
             snackbarDOM.classList.remove("show");
         }, 3000);
-    }
+    };
+
+    static loadingShow = () => {
+        const loadingDOM = document.querySelector(".loading");
+        const bodyDOM = document.querySelector("body");
+        loadingDOM.classList.add("show");
+        bodyDOM.classList.add("blur");
+    };
+
+    static loadingClose = () => {
+        const bodyDOM = document.querySelector("body");
+        const loadingDOM = document.querySelector(".loading");
+        loadingDOM.classList.remove("show");
+        bodyDOM.classList.remove("blur");
+    };
 }
 
 DOM.initButtons();
