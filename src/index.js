@@ -40,7 +40,6 @@ export default class DOM {
         const dateDOM = document.getElementById("date");
         const descriptionDOM = document.getElementById("description");
         const tempDOM = document.getElementById("temp");
-        const iconDOM = document.getElementById("icon");
         const feelsLikeDOM = document.getElementById("feels-like");
         const humidityDOM = document.getElementById("humidity");
         const windDOM = document.getElementById("wind");
@@ -55,11 +54,6 @@ export default class DOM {
         windDOM.textContent = wind;
     };
 
-    static renderRainPercent = (data) => {
-        const chanceDOM = document.getElementById("chance-of-rain");
-        chanceDOM.textContent = data;
-    };
-
     static renderForecast = (
         firstDayTemp,
         firstDayFeelsLike,
@@ -71,6 +65,11 @@ export default class DOM {
         fourthDayFeelsLike,
         fifthDayTemp,
         fifthDayFeelsLike,
+        icon1,
+        icon2,
+        icon3,
+        icon4,
+        icon5,
     ) => {
         const firstDayDOM = document.getElementById("first-day");
         const secondDayDOM = document.getElementById("second-day");
@@ -78,11 +77,33 @@ export default class DOM {
         const fourthDayDOM = document.getElementById("fourth-day");
         const fifthDayDOM = document.getElementById("fifth-day");
 
+        const icon1DOM = firstDayDOM.nextSibling;
+        const icon2DOM = secondDayDOM.nextSibling;
+        const icon3DOM = thirdDayDOM.nextSibling;
+        const icon4DOM = fourthDayDOM.nextSibling;
+        const icon5DOM = fifthDayDOM.nextSibling;
+
         firstDayDOM.textContent = `Temp : ${firstDayTemp} Feels Like: ${firstDayFeelsLike}`;
         secondDayDOM.textContent = `Temp : ${secondDayTemp} Feels Like: ${secondDayFeelsLike}`;
         thirdDayDOM.textContent = `Temp : ${thirdDayTemp} Feels Like: ${thirdDayFeelsLike}`;
         fourthDayDOM.textContent = `Temp : ${fourthDayTemp} Feels Like: ${fourthDayFeelsLike}`;
         fifthDayDOM.textContent = `Temp : ${fifthDayTemp} Feels Like: ${fifthDayFeelsLike}`;
+
+        icon1DOM.src = icon1;
+        icon2DOM.src = icon2;
+        icon3DOM.src = icon3;
+        icon4DOM.src = icon4;
+        icon5DOM.src = icon5;
+    };
+
+    static renderRainPercent = (data) => {
+        const chanceDOM = document.getElementById("chance-of-rain");
+        chanceDOM.textContent = data;
+    };
+
+    static renderCurrentIcon = (icon) => {
+        const iconDOM = document.getElementById("icon");
+        iconDOM.src = icon;
     };
 }
 

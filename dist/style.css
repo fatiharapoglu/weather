@@ -77,4 +77,11 @@ body {
   height: 10vh;
 }
 
+.weather-details-center {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /*# sourceMappingURL=style.css.map */
