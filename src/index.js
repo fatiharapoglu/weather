@@ -79,11 +79,11 @@ export default class DOM {
         const fourthDayDOM = document.getElementById("fourth-day");
         const fifthDayDOM = document.getElementById("fifth-day");
 
-        firstDayDOM.textContent = `${firstDayTemp} Feels Like: ${firstDayFeelsLike}`;
-        secondDayDOM.textContent = `${secondDayTemp} Feels Like: ${secondDayFeelsLike}`;
-        thirdDayDOM.textContent = `${thirdDayTemp} Feels Like: ${thirdDayFeelsLike}`;
-        fourthDayDOM.textContent = `${fourthDayTemp} Feels Like: ${fourthDayFeelsLike}`;
-        fifthDayDOM.textContent = `${fifthDayTemp} Feels Like: ${fifthDayFeelsLike}`;
+        firstDayDOM.innerHTML = `${firstDayTemp} <br><span class="forecast-feels-like">${firstDayFeelsLike}</span>`;
+        secondDayDOM.innerHTML = `${secondDayTemp} <br><span class="forecast-feels-like">${secondDayFeelsLike}</span>`;
+        thirdDayDOM.innerHTML = `${thirdDayTemp} <br><span class="forecast-feels-like">${thirdDayFeelsLike}</span>`;
+        fourthDayDOM.innerHTML = `${fourthDayTemp} <br><span class="forecast-feels-like">${fourthDayFeelsLike}</span>`;
+        fifthDayDOM.innerHTML = `${fifthDayTemp} <br><span class="forecast-feels-like">${fifthDayFeelsLike}</span>`;
 
         const icon1DOM = firstDayDOM.previousSibling;
         const icon2DOM = secondDayDOM.previousSibling;
