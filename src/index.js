@@ -3,16 +3,18 @@ import Weather from "./API";
 export default class DOM {
     static activeUnit = "C";
 
-    static lastLocation = "London";
+    static lastLocation = "İstanbul";
 
     static initButtons = () => {
         const searchBtnDOM = document.getElementById("search-btn");
         const unitChangerBtnDOM = document.getElementById("change-unit-btn");
+        const requestLocationBtnDOM = document.getElementById("geolocation");
         searchBtnDOM.addEventListener("click", (event) => {
             event.preventDefault();
             this.getLocation();
         });
         unitChangerBtnDOM.addEventListener("click", this.toggleUnits);
+        requestLocationBtnDOM.addEventListener("click", this.requestGeoLocation);
     };
 
     static getLocation = () => {
@@ -152,7 +154,19 @@ export default class DOM {
         const searchInputDOM = document.getElementById("search-input");
         searchInputDOM.value = "";
     };
+
+    static requestGeoLocation = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                Weather.getGeolocation(lat, lon);
+            });
+        } else {
+            this.snackbar("Geolocation is not supported by your browser.");
+        }
+    };
 }
 
 DOM.initButtons();
-Weather.getWeatherLink("London");
+Weather.getWeatherLink("İstanbul");

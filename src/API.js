@@ -9,6 +9,13 @@ export default class Weather {
         this.fetchLink(link, forecastLink, location);
     };
 
+    static getGeolocation = (lat, lon) => {
+        const API = "8b09689c50ce1e845011934fc53575bd";
+        const link = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API}`;
+        const forecastLink = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API}`;
+        this.fetchLink(link, forecastLink);
+    };
+
     static fetchLink = async (link, forecastLink, location) => {
         try {
             DOM.loadingShow();
