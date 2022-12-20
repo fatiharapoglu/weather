@@ -18,6 +18,7 @@ export default class Weather {
             const forecastData = await rawForecastData.json();
             this.usableCurrentData(data);
             this.usableForecastData(forecastData);
+            DOM.clearInput();
             DOM.loadingClose();
         } catch (error) {
             DOM.snackbar(`It seems there is no location as "${location}".`);

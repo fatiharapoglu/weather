@@ -1,15 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Marcellus+SC&display=swap");
+
 :root {
-    --text: white;
+    --text: rgb(216, 219, 254);
+    --third: rgb(255 214 254);
+    --secondary: rgb(189 229 253);
     --background-primary: inherit;
-    --border: 1px solid white;
     --shadow: rgb(0 0 0 / 25%);
+    --font1: "Marcellus SC", serif;
+    --font2: "Crimson Text", serif;
+}
+
+@mixin shadow {
+    background-color: var(--shadow);
+    border-radius: 20px;
+    padding: 15px;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: var(--text);
+    color: var(--secondary);
+    font-family: var(--font2);
 }
 
 ul,
@@ -29,12 +41,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-}
-
-@mixin shadow {
-    background-color: var(--shadow);
-    border-radius: 20px;
-    padding: 20px;
 }
 
 .btn {
@@ -63,14 +69,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 40vh;
+    height: 50vh;
 
     *:focus-visible {
         outline: none;
     }
 
     form {
-        border: 1px dashed rgb(158, 155, 155);
         background-color: var(--shadow);
         border-radius: 25px;
         transition: scale 0.5s ease-in-out;
@@ -100,6 +105,12 @@ body {
         align-items: center;
         width: 15vw;
         @include shadow;
+
+        :first-child {
+            font-family: var(--font1);
+            font-weight: bold;
+            color: var(--third);
+        }
     }
     
     img {
@@ -113,7 +124,7 @@ body {
     }
 
     .forecast-feels-like {
-        font-size: 10px;
+        font-size: 12px;
     }
 }
 
@@ -123,8 +134,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    height: 30vh;
+    gap: 35px;
+    height: 20vh;
 
     div {
         display: flex;
@@ -138,20 +149,39 @@ body {
     }
 
     #place {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: -7px;
     }
     
     #description {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     
     #temp {
-        font-size: 3.5rem;
+        font-size: 5rem;
     }
 
     #change-unit-btn {
         position: absolute;
         right: 25px;
+    }
+
+    #change-unit-btn:hover {
+        color: var(--third);
+    }
+
+    .description-with-image {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #date {
+        font-size: 0.8rem;
+        color: var(--third);
+    }
+    
+    #wind, #chance-of-rain, #humidity, #feels-like {
+        color: var(--third);
     }
 }
 
@@ -196,24 +226,23 @@ body {
     }
 
     a:hover {
-        color: rgb(175, 124, 124);
+        color: var(--third);
     }
 }
 
 .snackbar {
     visibility: hidden;
     min-width: 250px;
-    background-color: rgb(163, 44, 44);
-    color: rgb(255, 255, 255);
+    background-color: var(--shadow);
+    color: var(--third);
     text-align: center;
-    border: 1px solid var(--border);
     border-radius: 10px;
     padding: 1rem;
     position: fixed;
     z-index: 2;
     left: 50%;
     transform: translateX(-50%);
-    top: 3vh;
+    top: 25vh;
 }
 
 .snackbar.show {
@@ -229,7 +258,7 @@ body {
     }
 
     to {
-        top: 3vh;
+        top: 25vh;
         opacity: 1;
     }
 }
@@ -241,14 +270,14 @@ body {
     }
 
     to {
-        top: 3vh;
+        top: 25vh;
         opacity: 1;
     }
 }
 
 @-webkit-keyframes fadeout {
     from {
-        top: 3vh;
+        top: 25vh;
         opacity: 1;
     }
 
@@ -260,7 +289,7 @@ body {
 
 @keyframes fadeout {
     from {
-        top: 3vh;
+        top: 25vh;
         opacity: 1;
     }
 

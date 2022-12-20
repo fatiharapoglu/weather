@@ -147,6 +147,11 @@ export default class DOM {
         loadingDOM.classList.remove("show");
         bodyDOM.classList.remove("blur");
     };
+
+    static clearInput = () => {
+        const searchInputDOM = document.getElementById("search-input");
+        searchInputDOM.value = "";
+    };
 }
 
 DOM.initButtons();
