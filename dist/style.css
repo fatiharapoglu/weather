@@ -143,11 +143,18 @@ body {
   font-size: 5rem;
 }
 .weather-details-center #change-unit-btn {
-  position: absolute;
-  right: 25px;
+  transition: all 0.2s ease-in-out;
 }
 .weather-details-center #change-unit-btn:hover {
   color: var(--third);
+  scale: 1.1;
+}
+.weather-details-center .change-unit {
+  position: absolute;
+  right: 25px;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
 }
 .weather-details-center .description-with-image {
   display: flex;
