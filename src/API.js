@@ -1,3 +1,4 @@
+import { format, add } from "date-fns";
 import DOM from "./index";
 
 export default class Weather {
@@ -30,18 +31,34 @@ export default class Weather {
         const feelsLike = this.convertKelvin(data.main.feels_like); // feels like temperature
         const humidityPercent = `${(data.main.humidity).toString()} %`; // humidity percent
         const longDesc = this.firstLetterUpperCase(data.weather[0].description);
-        const shortDesc = data.weather[0].main;
         const wind = `${this.convertSpeed(data.wind.speed).toFixed(1)} km/h`; // wind in km/h
         const iconCode = data.weather[0].icon;
 
         DOM.lastLocation = data.name;
         DOM.renderCurrentIcon(this.generateIcon(iconCode));
-        DOM.renderCurrent(temp, place, feelsLike, humidityPercent, longDesc, shortDesc, wind);
+        DOM.renderCurrent(temp, place, feelsLike, humidityPercent, longDesc, wind);
     };
 
     static usableForecastData = (data) => {
         const rainPercent = `${((data.list[0].pop) * 100).toFixed(0)} %`; // probility of rain percent (current)
         DOM.renderRainPercent(rainPercent);
+
+        const currentDate = format(new Date(data.list[0].dt_txt), "do MMMM yyyy"); // readable cool display date
+        DOM.renderCurrentDate(currentDate);
+
+        // date-fns add function to get dates correctly relevant to the date
+        const rawFirstDate = add(new Date(data.list[0].dt_txt), { days: 1 });
+        const rawSecondDate = add(new Date(data.list[0].dt_txt), { days: 2 });
+        const rawThirdDate = add(new Date(data.list[0].dt_txt), { days: 3 });
+        const rawFourthDate = add(new Date(data.list[0].dt_txt), { days: 4 });
+        const rawFifthDate = add(new Date(data.list[0].dt_txt), { days: 5 });
+
+        // date-fns format function to get name of the day only
+        const firstDate = format(rawFirstDate, "EEEE");
+        const secondDate = format(rawSecondDate, "EEEE");
+        const thirdDate = format(rawThirdDate, "EEEE");
+        const fourthDate = format(rawFourthDate, "EEEE");
+        const fifthDate = format(rawFifthDate, "EEEE");
 
         const firstDayTemp = this.convertKelvin(data.list[8].main.temp);
         const firstDayFeelsLike = this.convertKelvin(data.list[8].main.feels_like);
@@ -77,6 +94,11 @@ export default class Weather {
             icon3,
             icon4,
             icon5,
+            firstDate,
+            secondDate,
+            thirdDate,
+            fourthDate,
+            fifthDate,
         );
     };
 

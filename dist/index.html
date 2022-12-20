@@ -10,21 +10,33 @@
     <script src="https://kit.fontawesome.com/4b1acd5b1d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <button id="change-unit-btn" class="btn">Units to °F</button>
     <div class="weather-details-center">
-        <div id="place"></div>
+        <div>
+            <div id="place"></div>
+            <div id="date"></div>
+        </div>
         <div>
             <div><img id="icon" src="#" alt="icon"></div>
             <div id="description"></div>
         </div>
         <div id="temp"></div>
-    </div>
-    <div class="main">
-        <div id="date"></div>
-        <div id="feels-like"></div>
-        <div id="humidity"></div>
-        <div id="chance-of-rain"></div>
-        <div id="wind"></div>
+        <div>
+            <i class="fa-solid fa-fire-flame-curved"></i> Feels like:
+            <div id="feels-like"></div>
+        </div>
+        <div>
+            <i class="fa-solid fa-droplet"></i> Humidity:
+            <div id="humidity"></div>
+        </div>
+        <div>
+            <i class="fa-solid fa-umbrella"></i> Probability:
+            <div id="chance-of-rain"></div>
+        </div>
+        <div>
+            <i class="fa-solid fa-wind"></i> Wind:
+            <div id="wind"></div>
+        </div>
+        <button id="change-unit-btn" class="btn">Units to °F</button>
     </div>
     <div class="container">
         <form autocomplete="off">
@@ -33,11 +45,11 @@
         </form>
     </div>
     <div class="forecast">
-        <div><img src="#" alt="1"><span id="first-day"></span></div>
-        <div><img src="#" alt="2"><span id="second-day"></span></div>
-        <div><img src="#" alt="3"><span id="third-day"></span></div>
-        <div><img src="#" alt="4"><span id="fourth-day"></span></div>
-        <div><img src="#" alt="5"><span id="fifth-day"></span></div>
+        <div><span></span><img src="#" alt="1"><span id="first-day"></span></div>
+        <div><span></span><img src="#" alt="2"><span id="second-day"></span></div>
+        <div><span></span><img src="#" alt="3"><span id="third-day"></span></div>
+        <div><span></span><img src="#" alt="4"><span id="fourth-day"></span></div>
+        <div><span></span><img src="#" alt="5"><span id="fifth-day"></span></div>
     </div>
     <footer class="footer">
         <div class="about">
