@@ -123,7 +123,7 @@ export default class Weather {
     };
 
     static generateIcon = (icon) => {
-        const url = `http://openweathermap.org/img/wn/${icon}@2x.png`; // weather icons from OWM
+        const url = `https://openweathermap.org/img/wn/${icon}@2x.png`; // weather icons from OWM
         return url;
     };
 
