@@ -42,6 +42,7 @@ body {
     background-position: center;
     background-color: #242424;
     position: relative;
+    min-width: 1250px;
 }
 
 .btn {
@@ -117,6 +118,7 @@ body {
         justify-content: center;
         align-items: center;
         width: 15vw;
+        min-width: 200px;
         @include shadow;
 
         :first-child {
