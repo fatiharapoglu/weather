@@ -76,15 +76,15 @@ export default class Weather {
         const thirdDayFeelsLike = this.convertKelvin(data.list[24].main.feels_like);
         const fourthDayTemp = this.convertKelvin(data.list[32].main.temp);
         const fourthDayFeelsLike = this.convertKelvin(data.list[32].main.feels_like);
-        const fifthDayTemp = this.convertKelvin(data.list[39].main.temp);
-        const fifthDayFeelsLike = this.convertKelvin(data.list[39].main.feels_like);
+        const fifthDayTemp = this.convertKelvin(data.list[37].main.temp);
+        const fifthDayFeelsLike = this.convertKelvin(data.list[37].main.feels_like);
 
         // five icons for five days of forecast
         const icon1 = this.generateIcon(data.list[8].weather[0].icon);
         const icon2 = this.generateIcon(data.list[16].weather[0].icon);
         const icon3 = this.generateIcon(data.list[24].weather[0].icon);
         const icon4 = this.generateIcon(data.list[32].weather[0].icon);
-        const icon5 = this.generateIcon(data.list[39].weather[0].icon);
+        const icon5 = this.generateIcon(data.list[37].weather[0].icon);
 
         DOM.renderForecast(
             firstDayTemp,
