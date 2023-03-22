@@ -73,7 +73,7 @@ export default class DOM {
         secondDate,
         thirdDate,
         fourthDate,
-        fifthDate,
+        fifthDate
     ) => {
         const firstDayDOM = document.getElementById("first-day");
         const secondDayDOM = document.getElementById("second-day");
@@ -127,7 +127,8 @@ export default class DOM {
         dateDOM.textContent = date;
     };
 
-    static snackbar = (text) => { // snackbar alert settings
+    static snackbar = (text) => {
+        // snackbar alert settings
         const snackbarDOM = document.getElementById("snackbar");
         snackbarDOM.textContent = text;
         snackbarDOM.classList.add("show");

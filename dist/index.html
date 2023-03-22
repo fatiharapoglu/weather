@@ -1,73 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fettan | The Weather App</title>
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
-    <script src="https://kit.fontawesome.com/4b1acd5b1d.js" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="weather-details-center">
-        <div class="description-with-image">
-            <div id="description"></div>
-            <div><img id="icon" src="#" alt="icon"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fettan | The Weather App</title>
+        <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="main.js" defer></script>
+        <script src="https://kit.fontawesome.com/4b1acd5b1d.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="weather-details-center">
+            <div class="description-with-image">
+                <div id="description"></div>
+                <div><img id="icon" src="#" alt="icon" /></div>
+            </div>
+            <div>
+                <div id="place"></div>
+                <div id="date"></div>
+            </div>
+            <div id="temp"></div>
+            <div>
+                <i class="fa-solid fa-fire-flame-curved"></i> Feels like:
+                <div id="feels-like"></div>
+            </div>
+            <div>
+                <i class="fa-solid fa-droplet"></i> Humidity:
+                <div id="humidity"></div>
+            </div>
+            <div>
+                <i class="fa-solid fa-umbrella"></i> Probability:
+                <div id="chance-of-rain"></div>
+            </div>
+            <div>
+                <i class="fa-solid fa-wind"></i> Wind:
+                <div id="wind"></div>
+            </div>
+            <div class="change-unit">
+                <i class="fa-solid fa-temperature-high"></i>
+                <button id="change-unit-btn" class="btn">Units to °F</button>
+            </div>
         </div>
-        <div>
-            <div id="place"></div>
-            <div id="date"></div>
+        <div class="container">
+            <button id="geolocation" class="btn">
+                <i class="fa-solid fa-location-dot" style="font-size: 50px" title="Where am i?"></i>
+            </button>
+            <form autocomplete="off">
+                <input
+                    id="search-input"
+                    type="text"
+                    class="search-input"
+                    placeholder="Explore the skies"
+                    autofocus
+                />
+                <button id="search-btn" class="btn">
+                    <i class="fa-solid fa-magnifying-glass-location" style="font-size: 20px"></i>
+                </button>
+            </form>
         </div>
-        <div id="temp"></div>
-        <div>
-            <i class="fa-solid fa-fire-flame-curved"></i> Feels like:
-            <div id="feels-like"></div>
+        <div class="forecast">
+            <div><span></span><img src="#" alt="1" /><span id="first-day"></span></div>
+            <div><span></span><img src="#" alt="2" /><span id="second-day"></span></div>
+            <div><span></span><img src="#" alt="3" /><span id="third-day"></span></div>
+            <div><span></span><img src="#" alt="4" /><span id="fourth-day"></span></div>
+            <div><span></span><img src="#" alt="5" /><span id="fifth-day"></span></div>
         </div>
-        <div>
-            <i class="fa-solid fa-droplet"></i> Humidity:
-            <div id="humidity"></div>
+        <footer class="footer">
+            <div class="about">
+                <span>
+                    <a href="https://www.theodinproject.com/" id="odin">The Odin Project</a>
+                    | fatiharapoglu
+                </span>
+                <a href="https://github.com/fatiharapoglu">
+                    <img
+                        class="github-icon"
+                        src="assets/GitHub-Mark-Light-120px-plus.png"
+                        alt="github-logo"
+                    />
+                </a>
+            </div>
+        </footer>
+        <div id="snackbar" class="snackbar"><!-- snackbar text --></div>
+        <div class="loading">
+            <i
+                class="fa-solid fa-snowflake fa-spin"
+                style="color: rgb(216, 219, 254); font-size: 15rem"
+            ></i>
         </div>
-        <div>
-            <i class="fa-solid fa-umbrella"></i> Probability:
-            <div id="chance-of-rain"></div>
-        </div>
-        <div>
-            <i class="fa-solid fa-wind"></i> Wind:
-            <div id="wind"></div>
-        </div>
-        <div class="change-unit">
-            <i class="fa-solid fa-temperature-high"></i>
-            <button id="change-unit-btn" class="btn">Units to °F</button>
-        </div>
-    </div>
-    <div class="container">
-        <button id="geolocation" class="btn"><i class="fa-solid fa-location-dot" style="font-size: 50px;" title="Where am i?"></i></button>
-        <form autocomplete="off">
-            <input id="search-input" type="text" class="search-input" placeholder="Explore the skies" autofocus>
-            <button id="search-btn" class="btn"><i class="fa-solid fa-magnifying-glass-location" style="font-size: 20px;"></i></button>
-        </form>
-    </div>
-    <div class="forecast">
-        <div><span></span><img src="#" alt="1"><span id="first-day"></span></div>
-        <div><span></span><img src="#" alt="2"><span id="second-day"></span></div>
-        <div><span></span><img src="#" alt="3"><span id="third-day"></span></div>
-        <div><span></span><img src="#" alt="4"><span id="fourth-day"></span></div>
-        <div><span></span><img src="#" alt="5"><span id="fifth-day"></span></div>
-    </div>
-    <footer class="footer">
-        <div class="about">
-            <span>
-                <a href="https://www.theodinproject.com/lessons/node-path-javascript-weather-app" id="odin">The Odin Project</a> | fatiharapoglu
-            </span>
-            <a href="https://github.com/fatiharapoglu">
-                <img class="github-icon" src="assets/GitHub-Mark-Light-120px-plus.png" alt="github-logo">
-            </a>
-        </div>
-    </footer>
-    <div id="snackbar" class="snackbar"><!-- snackbar text --></div>
-    <div class="loading"><i class="fa-solid fa-snowflake fa-spin" style="color: rgb(216, 219, 254); font-size: 15rem;"></i></div>
-</body>
-
+    </body>
 </html>

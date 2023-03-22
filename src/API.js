@@ -37,7 +37,7 @@ export default class Weather {
         const temp = this.convertKelvin(data.main.temp); // temperature as kelvin from fetch
         const place = `${data.name}, ${data.sys.country}`; // get searched name and country
         const feelsLike = this.convertKelvin(data.main.feels_like); // feels like temperature
-        const humidityPercent = `${(data.main.humidity).toString()} %`; // humidity percent
+        const humidityPercent = `${data.main.humidity.toString()} %`; // humidity percent
         const longDesc = this.firstLetterUpperCase(data.weather[0].description);
         const wind = `${this.convertSpeed(data.wind.speed).toFixed(1)} km/h`; // wind in km/h
         const iconCode = data.weather[0].icon;
@@ -48,7 +48,7 @@ export default class Weather {
     };
 
     static usableForecastData = (data) => {
-        const rainPercent = `${((data.list[0].pop) * 100).toFixed(0)} %`; // probility of rain percent (current)
+        const rainPercent = `${(data.list[0].pop * 100).toFixed(0)} %`; // probility of rain percent (current)
         DOM.renderRainPercent(rainPercent);
 
         const currentDate = format(new Date(data.list[0].dt_txt), "do MMMM yyyy"); // readable cool display date
@@ -106,7 +106,7 @@ export default class Weather {
             secondDate,
             thirdDate,
             fourthDate,
-            fifthDate,
+            fifthDate
         );
     };
 
@@ -127,8 +127,12 @@ export default class Weather {
         return url;
     };
 
-    static firstLetterUpperCase = (string) => { // API returns a string with all lowercase
-        const newString = string.split(" ").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ");
+    static firstLetterUpperCase = (string) => {
+        // API returns a string with all lowercase
+        const newString = string
+            .split(" ")
+            .map((word) => word[0].toUpperCase() + word.slice(1))
+            .join(" ");
         return newString; // this function is making words' first letter uppercase for display
     };
 }

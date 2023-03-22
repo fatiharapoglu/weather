@@ -127,11 +127,11 @@ body {
             color: var(--third);
         }
     }
-    
+
     img {
         filter: contrast(2);
     }
-        
+
     span {
         display: flex;
         flex-direction: column;
@@ -151,7 +151,7 @@ body {
     align-items: center;
     gap: 35px;
     height: 20vh;
-    
+
     div {
         display: flex;
         flex-direction: column;
@@ -167,11 +167,11 @@ body {
         font-size: 2.5rem;
         margin-bottom: -7px;
     }
-    
+
     #description {
         font-size: 1rem;
     }
-    
+
     #temp {
         font-size: 5rem;
     }
@@ -184,7 +184,7 @@ body {
         color: var(--third);
         scale: 1.1;
     }
-        
+
     .change-unit {
         position: absolute;
         right: 25px;
@@ -206,8 +206,11 @@ body {
         font-size: 0.8rem;
         color: var(--third);
     }
-    
-    #wind, #chance-of-rain, #humidity, #feels-like {
+
+    #wind,
+    #chance-of-rain,
+    #humidity,
+    #feels-like {
         color: var(--third);
     }
 }
@@ -245,9 +248,9 @@ body {
         height: 25px;
         padding-left: 10px;
         padding: 0 10px;
-        transition: transform 1s ease-in-out;
+        transition: transform 0.5s ease-in-out;
     }
-    
+
     .github-icon:hover {
         transform: rotate(360deg);
     }
