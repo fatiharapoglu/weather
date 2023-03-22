@@ -180,7 +180,10 @@ body {
   font-size: 0.8rem;
   color: var(--third);
 }
-.weather-details-center #wind, .weather-details-center #chance-of-rain, .weather-details-center #humidity, .weather-details-center #feels-like {
+.weather-details-center #wind,
+.weather-details-center #chance-of-rain,
+.weather-details-center #humidity,
+.weather-details-center #feels-like {
   color: var(--third);
 }
 
@@ -216,7 +219,7 @@ body {
   height: 25px;
   padding-left: 10px;
   padding: 0 10px;
-  transition: transform 1s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 .footer .github-icon:hover {
   transform: rotate(360deg);
