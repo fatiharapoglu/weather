@@ -1,6 +1,6 @@
 # Weather API
 
-Created with **HTML**, **CSS** and **JavaScript**.
+Created with **HTML**, **SCSS** and **JavaScript**.
 
 ⮕ [Live preview](https://fatiharapoglu.github.io/weather/)
 
