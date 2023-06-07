@@ -6,11 +6,12 @@ Created with **HTML**, **SCSS** and **JavaScript**.
 
 ## Features
 
--   Display 5 days of forecast data for a given location
--   Snowflake loading screen with blurry background
--   Display temperature in Celsius or Fahrenheit units
--   Geolocation API support, which is for browser to find where the user are and show weather for the location
--   Unique weather symbols for each forecast description
+-   Display 5 days of forecast data for a given location.
+-   Snowflake loading screen with blurry background.
+-   Display temperature in Celsius or Fahrenheit units.
+-   Geolocation API support, which is for browser to find where the user are and show weather for the location.
+-   Unique weather symbols for each forecast description.
+-   Responsive design.
 
 ## Helper Dependencies
 
@@ -21,10 +22,6 @@ Created with **HTML**, **SCSS** and **JavaScript**.
 -   [Eslint](https://eslint.org/) for linting
 -   [Prettier](https://prettier.io/) for formatting
 
-## Roadmap
-
--   Make design responsive.
-
 ## Acknowledgements
 
 -   [OpenWeatherMap](https://openweathermap.org/) (Weather API provider)
@@ -32,3 +29,13 @@ Created with **HTML**, **SCSS** and **JavaScript**.
 ## How It Looks
 
 ![ss](./dist/assets/readme.png)
+
+## Contact
+
+⮕ [Portfolio](https://fatiharapoglu.dev)
+
+⮕ [LinkedIn](https://www.linkedin.com/in/fatiharapoglu/)
+
+## License
+
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License.
